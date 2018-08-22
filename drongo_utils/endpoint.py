@@ -36,6 +36,7 @@ class APIEndpoint(Endpoint):
 
         if self.valid:
             try:
+                self._logger.info("Badri: got here with url = {}, ctx = {}".format(self.__url__, self.ctx))
                 self.ctx.response.set_json({
                     'status': 'OK',
                     'payload': self.call()
