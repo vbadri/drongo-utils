@@ -27,7 +27,7 @@ class Endpoint(object):
 
 
 class APIEndpoint(Endpoint):
-    _logger = logging.getLogger('drongo.api')
+    _logger = logging.getLogger('drongo.utils')
 
     def __call__(self):
         self.valid = True
@@ -46,7 +46,7 @@ class APIEndpoint(Endpoint):
             except Exception:
                 exc_type, exc_value, exc_traceback = sys.exc_info()
 
-                self._logger.error('\n'.join(traceback.format_exception(
+                _logger.error('\n'.join(traceback.format_exception(
                     exc_type, exc_value, exc_traceback)))
 
                 self.error(message='Internal server error.')
